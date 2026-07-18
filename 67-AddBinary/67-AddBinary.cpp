@@ -1,26 +1,24 @@
-// Last updated: 7/16/2026, 4:39:02 PM
-class Solution {
-public:
-    string addBinary(string a, string b) {
-        int lenA = a.length();
-        int lenB = b.length();
-        int i=0,carry = 0;
-        string ans ="";
-
-        while (i<lenA || i<lenB || carry!=0){
-            int x = 0;
-            if (i<lenA && a[lenA-i-1]=='1'){
-                x=1;
-            }
-            int y = 0;
-            if(i<lenB && b[lenB-i-1]=='1'){
-                y=1;  
-            }
-            ans = to_string((x+y+carry)%2)+ans;
-            carry =(x+y+carry)/2;
-            i++;
-        }
-        return ans;
-
-    }
-};
+// Last updated: 7/18/2026, 12:51:38 PM
+1class Solution {
+2public:
+3    string addBinary(string a, string b) {
+4        int i = a.length() - 1;
+5        int j = b.length() - 1;
+6        string res = "";
+7        int carry = 0;
+8
+9        while(i >= 0 || j >= 0 || carry ==1){
+10            if(i >= 0)
+11                carry += a[i] - '0';
+12                i--;
+13            if (j >= 0)
+14                carry += b[j] - '0';
+15                j--;
+16
+17            res += carry%2 + '0';
+18            carry = carry/2;
+19        }
+20        reverse(res.begin(), res.end());
+21        return res;
+22    }
+23};
