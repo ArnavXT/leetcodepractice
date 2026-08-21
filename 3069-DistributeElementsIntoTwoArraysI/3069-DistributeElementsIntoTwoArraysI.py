@@ -1,4 +1,4 @@
-# Last updated: 8/20/2026, 3:51:51 PM
+# Last updated: 8/21/2026, 10:48:06 PM
 1class Solution:
 2    def resultArray(self, nums: List[int]) -> List[int]:
 3        A=([nums[0]], [nums[1]])
