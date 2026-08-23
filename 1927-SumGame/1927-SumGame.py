@@ -1,4 +1,4 @@
-# Last updated: 8/23/2026, 11:19:04 PM
+# Last updated: 8/23/2026, 11:19:22 PM
 1class Solution:
 2    def sumGame(self, num: str) -> bool:
 3        n = len(num)
@@ -16,18 +16,13 @@
 15                else:
 16                    sumR += int(num[i])
 17
-18        # Case 1: string only contains digits
-19        if qL + qR == 0:
-20            return sumL != sumR
-21
-22        # Case 2: odd no. of '?'
-23        if (qL + qR) % 2:
-24            return True
-25
-26        # Case 3: even no. of '?'
-27        # 3a:
-28        if qL == qR:
-29            return sumL != sumR
-30
-31        # 3b: 
-32        return 2 * (sumL - sumR) != 9 * (qR - qL)
+18        if qL + qR == 0:
+19            return sumL != sumR
+20
+21        if (qL + qR) % 2:
+22            return True
+23
+24
+25        if qL == qR:
+26            return sumL != sumR
+27        return 2 * (sumL - sumR) != 9 * (qR - qL)
