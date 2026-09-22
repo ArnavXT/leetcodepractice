@@ -1,10 +1,16 @@
-# Last updated: 9/21/2026, 11:56:48 PM
+# Last updated: 9/23/2026, 12:49:16 AM
 1class Solution:
-2    def findMaxAverage(self, nums: list[int], k: int) -> float:
-3        a = sum(nums[:k])
-4        ms = a
-5
-6        for i in range(k, len(nums)):
-7            a = a + nums[i] - nums[i-k]
-8            ms = max(ms, a)
-9        return ms/k
+2    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+3        intervals.sort()  # Sort by start time
+4        merged = []
+5        prev = intervals[0]
+6
+7        for i in range(1, len(intervals)):
+8            if intervals[i][0] <= prev[1]:  
+9                prev[1] = max(prev[1], intervals[i][1])  
+10            else:
+11                merged.append(prev)
+12                prev = intervals[i]
+13
+14        merged.append(prev)
+15        return merged
